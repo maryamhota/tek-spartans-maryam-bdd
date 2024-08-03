@@ -1,0 +1,32 @@
+package tek.bdd.utility;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import tek.bdd.base.BaseSetup;
+
+import java.time.Duration;
+
+public class SeleniumUtility extends BaseSetup {
+    // utility class should extend the base setup class
+    // instead of creating Webdriverwait multiple times, we create a method to call the wait every time, we create
+    // webdriverwait.
+    private WebDriverWait getWait (){
+        return new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+    }
+
+    // create a method to click on a given locator
+    public void clickElement(By locator) {
+
+        // create a webdriver wait
+        //WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20)); removing this line and calling
+        // the above method
+        // wait object
+        getWait().until(ExpectedConditions.elementToBeClickable(locator)).click();
+    }
+        public void sendText(By locator, String value){
+        //WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(value);
+        }
+}

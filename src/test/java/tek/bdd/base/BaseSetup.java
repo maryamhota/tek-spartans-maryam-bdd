@@ -2,15 +2,13 @@ package tek.bdd.base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.time.Duration;
-
 public class BaseSetup {
 
+    // no more main methods
     // we need to make it an instance variable not local variable, outside the methode
     private static WebDriver driver;// we need to make it static to make it shareable
     public void setupBrowser (){
-
         // Web driver instance then Navigation to retail app
         // maximize and implicitly wait
         WebDriver driver = new ChromeDriver();
