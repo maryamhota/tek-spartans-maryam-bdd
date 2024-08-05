@@ -14,12 +14,17 @@ public class SetupTestStep extends SeleniumUtility{
     @Then("Validate top left corner is TEKSCHOOL")
     public void validateTopLeftLogo(){
             String topLeftCornerText = getElementText(By.className("top-nav__logo"));
-        System.out.println(topLeftCornerText);
+            System.out.println(topLeftCornerText);
         // assertion is used to make sure the expectation is met, it takes 2 parameters
         Assert.assertEquals("TEKSCHOOL", topLeftCornerText);
     }
-    @Then("Close the browser")
-    public void closeBrowser(){
-            quitBrowser();
+    @Then("Validate Sign in button is enabled")
+    public void validateSignInButtonEnabled(){
+            boolean isSignInEnabled = isElementEnabled(By.id("signinLink"));
+            Assert.assertTrue(isSignInEnabled);
     }
 }
+
+
+
+
