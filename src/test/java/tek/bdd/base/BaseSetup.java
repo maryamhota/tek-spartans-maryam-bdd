@@ -11,7 +11,7 @@ public class BaseSetup {
     public void setupBrowser (){
         // Web driver instance then Navigation to retail app
         // maximize and implicitly wait
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.get("https://retail.tekschool-students.com/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
