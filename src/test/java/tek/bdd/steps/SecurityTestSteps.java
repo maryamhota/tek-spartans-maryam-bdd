@@ -22,10 +22,21 @@ public class SecurityTestSteps extends SeleniumUtility {
     }
     @When("user enter username and password and click on login")
     public void user_enter_username_and_password_and_click_on_login() {
-        sendText(SignInPage.EMAIL_INPUT, "mhotak.us@gmail.com");
+        sendText(SignInPage.EMAIL_INPUT, "sawelai@yahoo.com");
         sendText(SignInPage.PASSWORD_INPUT, "password@123");
         clickElement(SignInPage.LOGIN_BUTTON);
     }
+    @When("user enter {string} and {string}  and click login")
+    public void userEnterUsernameAndPassword(String username, String password) {
+        sendText(SignInPage.EMAIL_INPUT, username);
+        sendText(SignInPage.PASSWORD_INPUT, password);
+        clickOnElement(SignInPage.LOGIN_BUTTON);
+
+    }
+
+    private void clickOnElement(By loginButton) {
+    }
+
     @Then("user should be able to see account link")
     public void user_should_be_able_to_see_account_link() {
     boolean isAccountDisplayed = isElementDisplayed  (By.id("accountLink"));
